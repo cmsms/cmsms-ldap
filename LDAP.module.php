@@ -41,6 +41,7 @@ class LDAP extends CMSModule
 		$this->SetParameterType('cn',CLEAN_STRING);
 		$this->SetParameterType('detailpage',CLEAN_STRING);
 		$this->SetParameterType('maction',CLEAN_STRING);
+		$this->SetParameterType('template',CLEAN_STRING);
 
 		
 	}

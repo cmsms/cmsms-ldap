@@ -16,7 +16,7 @@
 	// $params['q'] = 'phe';
 
 	if(isset($params['cn'])) {
-		$filter = $ldap_query->prepareFilter($params['cn'], '(|(cn=*{{Q}}*))');
+		$filter = $ldap_query->prepareFilter(html_entity_decode($params['cn']), 'cn={{Q}}');
 	}	else {
 		if(isset($params['q']))	{
 			if (preg_match("/^\d+/", $params['q'])) {
@@ -26,7 +26,9 @@
 			}
 		}
 	}
-	
+
+    var_dump($filter);
+
 	if(isset($filter))
 	{
 		$results = $ldap_query->search($dn, $filter, array());
@@ -36,4 +38,4 @@
 		echo $this->ProcessTemplateFor('default', $params);
 	}
 	
-	// $ldap_query->debug();
+//	 $ldap_query->debug();

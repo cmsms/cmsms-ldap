@@ -21,10 +21,10 @@ class LDAP extends CMSModule
 	public function GetAuthorEmail()        { return 'cybertotophe@gmail.com';   }
 	
   public  function GetHelp() {              return $this->Lang('help');  }
-	public function MinimumCMSVersion()    { return '1.10';  }
+	public  function MinimumCMSVersion()    { return '1.10';  }
   public  function GetDependencies() {      return array('CMSForms' => '1.10.2');  }
   public  function CheckAccess($permission = 'Manage LDAP') {    return $this->CheckPermission($permission);  }
-
+  public  function VisibleToAdminUser()     { return $this->CheckAccess();  }
   public  function IsPluginModule() {       return true;  }
   public  function HasAdmin() {             return true;}
   public  function GetAdminSection() {      return 'extensions';  }

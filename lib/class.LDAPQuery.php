@@ -100,13 +100,15 @@
 				$filters[] = $exclude;
 			}
 		
-			$sq = preg_replace( "/[^a-zA-Z0-9\ ,]/", "", $sq);
-			if (strlen($sq) == 0) $sq = ",";
+//			$sq = preg_replace( "/[^a-zA-Z0-9\ ,]/", "", $sq);
+//			$sq = preg_replace( "/[^a-zA-Z0-9\ ,]/", "", $sq);
+//			if (strlen($sq) == 0) $sq = ",";
 	 		
 			$filters[] = str_replace('{{Q}}', $sq, $filter);
 			
 			
-			return '(&'.implode('', $filters).')';
+//			return '(&'.implode('', $filters).')';
+			return '('  .implode('', $filters).')';
 		}
 		
 		public function debug()	{
